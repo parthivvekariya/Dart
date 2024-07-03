@@ -1,1 +1,31 @@
 
+
+
+  intl: ^0.19.0
+
+
+
+  String _greetingMessage = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _setGreetingMessage();
+  }
+
+  void _setGreetingMessage() {
+    DateTime now = DateTime.now();
+    String period = DateFormat('a').format(now); // AM or PM
+    String greeting;
+
+    if (period == 'AM') {
+      greeting = 'Good Morning';
+    } else {
+      greeting = 'Good Evening';
+    }
+
+    setState(() {
+      _greetingMessage = greeting;
+    });
+  }
+
